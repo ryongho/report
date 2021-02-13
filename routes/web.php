@@ -15,6 +15,7 @@ use App\Models\Report;
 */
 
 Route::get('/', function () {
+    echo("ddd");
     return view('welcome');
 });
 

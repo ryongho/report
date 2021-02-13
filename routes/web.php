@@ -15,7 +15,10 @@ use App\Models\Report;
 */
 
 Route::get('/', function () {
-    echo("ddd");
+    
+    $reports = App\Models\Report::get();
+    echo(json_encode($reports));
+    exit;
     return view('welcome');
 });
 

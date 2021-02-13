@@ -15,10 +15,6 @@ use App\Models\Report;
 */
 
 Route::get('/', function () {
-    
-    $reports = App\Models\Report::get();
-    echo(json_encode($reports));
-    exit;
     return view('welcome');
 });
 
@@ -26,6 +22,6 @@ Route::get('/report', function () {
     
     $reports = App\Models\Report::get();
     echo(json_encode($reports));
-    exit;
-    //return view('welcome');
+    
+    return view('report_list',['reports' => $reports]);
 });

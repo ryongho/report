@@ -20,7 +20,7 @@ Route::get('/', function () {
 
 Route::get('/report', function () {
     
-    $reports = App\Models\Report::get()->orderby('reg_date','desc');
+    $reports = App\Models\Report::orderby('reg_date','desc')->get();
     echo(json_encode($reports));
     
     //return view('report_list',['reports' => $reports]);

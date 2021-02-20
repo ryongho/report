@@ -18,10 +18,12 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/report', function () {
+Route::get('/report/{page}', function ($page) {
     
-    $reports = App\Models\Report::orderby('reg_date','desc')->get();
+    $start = ($page-1)*30;
+    $reports = App\Models\Report::orderby('reg_date','desc')->limit($start,30)->orderby('id','desc')->get();
     echo(json_encode($reports));
     
     //return view('report_list',['reports' => $reports]);
 });
+

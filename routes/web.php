@@ -18,10 +18,10 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/report/{page}', function ($page) {
+Route::get('/report/{page?}', function ($page = 1) {
     
     $start = ($page-1)*30;
-    $reports = App\Models\Report::orderby('reg_date','desc')->limit($start,30)->orderby('id','desc')->get();
+    $reports = App\Models\Report::offset($start)->limit(30)->orderby('reg_date','desc')->get();
     echo(json_encode($reports));
     
     //return view('report_list',['reports' => $reports]);

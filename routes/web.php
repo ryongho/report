@@ -14,6 +14,11 @@ use App\Models\Report;
 |
 */
 
+use App\Http\Controllers\Controller;
+use App\Http\Controllers\MeritController;
+use App\Http\Controllers\ReportController;
+
+
 Route::get('/', function () {
     return view('welcome');
 });
@@ -27,3 +32,8 @@ Route::get('/report/{page?}', function ($page = 1) {
     //return view('report_list',['reports' => $reports]);
 });
 
+
+Route::get('/report/list/{page?}',[ReportController::class, 'list'] );
+
+
+Route::get('/merit/{date?}/{jongmok?}', [MeritController::class, 'list']);

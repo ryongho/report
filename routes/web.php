@@ -23,7 +23,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/report/{page?}', function ($page = 1) {
+Route::get('/report/{date?}', function ($page = 1) {
     
     $start = ($page-1)*30;
     $reports = App\Models\Report::offset($start)->limit(30)->orderby('reg_date','desc')->get();
@@ -33,7 +33,7 @@ Route::get('/report/{page?}', function ($page = 1) {
 });
 
 
-Route::get('/report/list/{page?}',[ReportController::class, 'list'] );
+Route::get('/report/list/{date?}',[ReportController::class, 'list'] );
 
 
 Route::get('/merit/{date?}/{jongmok?}', [MeritController::class, 'list']);

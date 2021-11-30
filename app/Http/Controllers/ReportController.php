@@ -27,4 +27,12 @@ class ReportController extends Controller
         return view('report_list',['reports' => $reports, 'date' => $date]);
 
     }
+
+    public function pdf_view(Request $request){
+        
+        $report = Report::where("id",$request->id)->first();
+        return view('report_view',['report' => $report]);
+
+
+    }
 }

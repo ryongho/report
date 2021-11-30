@@ -34,6 +34,7 @@ Route::get('/report/{date?}', function ($page = 1) {
 
 
 Route::get('/report/list/{date?}',[ReportController::class, 'list'] );
+Route::get('/report/pdf_view/{id}',[ReportController::class, 'pdf_view'] );
 
 
 Route::get('/merit/{date?}/{jongmok?}', [MeritController::class, 'list']);

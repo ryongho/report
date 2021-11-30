@@ -43,7 +43,7 @@
             @foreach ($reports as $row)
                 <tr>
                     <td>{{ $row->item }} ({{ $row->item_code }})</td>
-                    <td><a target="blank" href={{ $row->report_url }}>{{ $row->title }}</a></td>
+                    <td><a target="blank" href="/report/pdf_view/{{$row->id}}">{{ $row->title }}</a></td>
                     <td>{{ $row->target_price }}</td>
                     <td style="padding:10;">{{ $row->summary }}</td>
                     <td>{{ $row->company }}</td>
